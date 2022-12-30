@@ -9,18 +9,16 @@ import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
-import android.widget.GridView;
 
 import com.example.a2activity.Adapter;
 import com.example.a2activity.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link GallaryFragment#newInstance} factory method to
+ * Use the {@link GalleryFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class GallaryFragment extends Fragment {
+public class GalleryFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,7 +31,7 @@ public class GallaryFragment extends Fragment {
 
     private Adapter adapter;
 
-    public GallaryFragment() {
+    public GalleryFragment() {
         // Required empty public constructor
     }
 
@@ -46,8 +44,8 @@ public class GallaryFragment extends Fragment {
      * @return A new instance of fragment GallaryFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static GallaryFragment newInstance(String param1, String param2) {
-        GallaryFragment fragment = new GallaryFragment();
+    public static GalleryFragment newInstance(String param1, String param2) {
+        GalleryFragment fragment = new GalleryFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -69,10 +67,10 @@ public class GallaryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_gallary, container, false);
+        View view= inflater.inflate(R.layout.fragment_gallery, container, false);
         ViewPager viewPager= view.findViewById(R.id.viewPager);
 
-      //  Adapter adapter=new Adapter(this);
+        Adapter adapter=new Adapter((FragmentActivity) getContext());
         viewPager.setAdapter(adapter);
 
         return view;

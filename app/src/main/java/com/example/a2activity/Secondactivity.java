@@ -9,7 +9,7 @@ import android.os.Bundle;
 
 
 import com.example.a2activity.Fragments.AccountFragment;
-import com.example.a2activity.Fragments.GallaryFragment;
+import com.example.a2activity.Fragments.GalleryFragment;
 import com.example.a2activity.Fragments.HomeFragment;
 import com.example.a2activity.Fragments.InfoFragment;
 import com.example.a2activity.Fragments.QuizFragment;
@@ -37,7 +37,7 @@ public class Secondactivity extends AppCompatActivity {
                     replaceFragment(new InfoFragment());
                     break;
                 case R.id.gallery:
-                    replaceFragment(new GallaryFragment());
+                    replaceFragment(new GalleryFragment());
                     break;
                 case R.id.quiz:
                     replaceFragment(new QuizFragment());
