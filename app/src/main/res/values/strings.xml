@@ -1,12 +1,14 @@
 <resources>
-    <string name="app_name">2Activity</string>
+    <string name="app_name">PitestiCity</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string-array name="Nume_Cladiri">
-        <item>Centru</item>
-        <item>Cladirea Primariei</item>
-        <item>Viovo Mall</item>
-        <item>Ramada Pitesti</item>
 
-    </string-array>
+    <string name="intro_text">Bine ati venit! Selectati categoria quizzului</string>
+    <string name="rasp_d_text">Rasp D</string>
+    <string name="rasp_c_text">Rasp C</string>
+    <string name="rasp_b_text">Rasp B</string>
+    <string name="rasp_a_text">Rasp A</string>
+    <string name="intrebare_text">Intrebare</string>
+    <string name="scor_text">Scor</string>
+
 </resources>
