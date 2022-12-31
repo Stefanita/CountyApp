@@ -3,12 +3,22 @@ package com.example.a2activity.Fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.a2activity.Adapters.CustomAdapter;
+import com.example.a2activity.Interfaces.OnFetchDataListener;
+import com.example.a2activity.Models.NewsApiResponse;
+import com.example.a2activity.Models.NewsHeadlines;
+import com.example.a2activity.Models.RequestManager;
 import com.example.a2activity.R;
+
+import java.util.List;
 
 
 /**
@@ -22,6 +32,9 @@ public class HomeFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    RecyclerView recyclerView;
+    CustomAdapter adapter;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -55,6 +68,7 @@ public class HomeFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
         }
     }
 
@@ -62,6 +76,35 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view= inflater.inflate(R.layout.fragment_home, container, false);
+
+        RequestManager manager= new RequestManager((FragmentActivity)getContext());
+        manager.getNewsHeadlines(listener, "general",null);
+        recyclerView = view.findViewById(R.id.recycler_main);
+
+
+        return view;
+    }
+
+    private final OnFetchDataListener<NewsApiResponse>listener= new OnFetchDataListener<NewsApiResponse>() {
+        @Override
+        public void onFetchData(List<NewsHeadlines> list, String message) {
+            showNews(list);
+
+        }
+
+        @Override
+        public void onError(String message) {
+
+        }
+    };
+
+    private void showNews(List<NewsHeadlines> list) {
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new GridLayoutManager((FragmentActivity)getContext(),1));
+        adapter = new CustomAdapter((FragmentActivity)getContext(),list);
+        recyclerView.setAdapter(adapter);
+
+
     }
 }

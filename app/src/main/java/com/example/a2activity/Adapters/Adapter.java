@@ -1,4 +1,4 @@
-package com.example.a2activity;
+package com.example.a2activity.Adapters;
 
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,6 +7,8 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager.widget.PagerAdapter;
+
+import com.example.a2activity.R;
 
 public class Adapter extends PagerAdapter {
 

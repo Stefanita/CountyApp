@@ -2,6 +2,7 @@ package com.example.a2activity.Fragments;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,8 +18,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.example.a2activity.Adapter;
-import com.example.a2activity.IntrebariPitesti;
+import com.example.a2activity.Models.IntrebariPitesti;
 import com.example.a2activity.R;
 
 /**
@@ -151,21 +151,31 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         String passStatus = "";
         if(score >totalQuestion*0.60){
             passStatus = "Passed";
-            new AlertDialog.Builder((FragmentActivity) getContext())
-                    .setTitle(passStatus)
-                    .setMessage("Score is "+ score +" out of "+ totalQuestion)
-                    .setCancelable(false)
-                    .show();
         }else{
             passStatus = "Failed";
-            new AlertDialog.Builder((FragmentActivity) getContext())
-                    .setTitle(passStatus)
-                    .setMessage("Score is "+ score+" out of "+ totalQuestion)
-                    .setCancelable(false)
-                    .show();
         }
 
+        AlertDialog.Builder builder = new AlertDialog.Builder((FragmentActivity) getContext())
+                .setTitle(passStatus)
+                .setMessage("Score is "+ score +" out of "+ totalQuestion)
+                .setCancelable(true);
+
+        // Set the "OK" button and its listener
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Navigate back to the start of the quiz
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.layout, new QuizFragment())
+                        .commit();
+            }
+        });
+
+        // Show the alert dialog
+        builder.show();
+
     }
+
 
     @NonNull
     @Override

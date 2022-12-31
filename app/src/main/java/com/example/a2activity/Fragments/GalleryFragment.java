@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.a2activity.Adapter;
+import com.example.a2activity.Adapters.Adapter;
 import com.example.a2activity.R;
 
 /**

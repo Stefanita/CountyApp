@@ -1,4 +1,4 @@
-package com.example.a2activity;
+package com.example.a2activity.Models;
 
 public class IntrebariPitesti {
 
