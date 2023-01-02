@@ -1,5 +1,6 @@
 package com.example.a2activity.Fragments;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,12 +11,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
-import com.example.a2activity.Adapters.CustomAdapter;
-import com.example.a2activity.Interfaces.OnFetchDataListener;
-import com.example.a2activity.Models.NewsApiResponse;
-import com.example.a2activity.Models.NewsHeadlines;
-import com.example.a2activity.Models.RequestManager;
 import com.example.a2activity.R;
 
 import java.util.List;
@@ -34,7 +33,6 @@ public class HomeFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
     RecyclerView recyclerView;
-    CustomAdapter adapter;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -71,40 +69,31 @@ public class HomeFragment extends Fragment {
 
         }
     }
-
+    private WebView mywebView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_home, container, false);
-
-        RequestManager manager= new RequestManager((FragmentActivity)getContext());
-        manager.getNewsHeadlines(listener, "general",null);
-        recyclerView = view.findViewById(R.id.recycler_main);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        mywebView=(WebView) view.findViewById(R.id.webviewHome);
+        mywebView.setWebViewClient(new WebViewClient());
+        mywebView.loadUrl("https://epitesti.ro/");
+        WebSettings webSettings=mywebView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
 
 
         return view;
     }
 
-    private final OnFetchDataListener<NewsApiResponse>listener= new OnFetchDataListener<NewsApiResponse>() {
+    public class mywebClient extends WebViewClient {
         @Override
-        public void onFetchData(List<NewsHeadlines> list, String message) {
-            showNews(list);
-
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            super.onPageStarted(view,url,favicon);
         }
-
         @Override
-        public void onError(String message) {
-
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            view.loadUrl(url);
+            return true;
         }
-    };
-
-    private void showNews(List<NewsHeadlines> list) {
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager((FragmentActivity)getContext(),1));
-        adapter = new CustomAdapter((FragmentActivity)getContext(),list);
-        recyclerView.setAdapter(adapter);
-
-
     }
 }
