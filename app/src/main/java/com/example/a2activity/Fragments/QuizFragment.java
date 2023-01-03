@@ -2,7 +2,9 @@ package com.example.a2activity.Fragments;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,10 +16,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.example.a2activity.Models.Email;
 import com.example.a2activity.Models.IntrebariPitesti;
 import com.example.a2activity.R;
 
@@ -62,6 +66,8 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
     RadioButton raspADam,raspBDam,raspCDam,raspDDam;
     Button btnNextDam;
     TextView tvScorDam,tvIntrebareDam,tvNrINTR;
+    private EditText eTo, eSubject, eMsg;
+    Button btn;
 
     int score=0;
     int totalQuestion= IntrebariPitesti.question.length;
@@ -79,10 +85,14 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
 
     @SuppressLint("MissingInflatedId")
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView (LayoutInflater inflater, ViewGroup container,
+                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_quiz, container, false);
+
+
+
+
         tvIntrebareDam = view.findViewById(R.id.tvIntrebare);
         tvScorDam = view.findViewById(R.id.tvScor);
         tvNrINTR=view.findViewById(R.id.tvNrINTR);
@@ -101,6 +111,12 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         raspCDam.setOnClickListener(this);
         raspDDam.setOnClickListener(this);
         btnNextDam.setOnClickListener(this);
+
+        //setContentView(R.layout.activity_email);
+        eTo = (EditText)view.findViewById(R.id.txtTo);
+        eSubject = (EditText)view.findViewById(R.id.txtSub);
+        eMsg = (EditText)view.findViewById(R.id.txtMsg);
+        btn = (Button)view.findViewById(R.id.btnSend);
 
         tvNrINTR.setText("Total questions : "+totalQuestion);
 
@@ -151,35 +167,35 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         String passStatus = "";
         if(score >totalQuestion*0.60){
             passStatus = "Passed";
+            new AlertDialog.Builder(getActivity())
+                    .setTitle(passStatus)
+                    .setMessage("Score is "+ score +" out of "+ totalQuestion)
+                    .setPositiveButton("Email",((dialogInterface, i) ->goHome()))
+                    .setCancelable(false)
+                    .show();
         }else{
             passStatus = "Failed";
+            new AlertDialog.Builder(getActivity())
+                    .setTitle(passStatus)
+                    .setMessage("Score is "+ score+" out of "+ totalQuestion)
+                    .setPositiveButton("Email",(dialogInterface, i) -> goHome() )
+                    .setCancelable(false)
+                    .show();
         }
 
-        AlertDialog.Builder builder = new AlertDialog.Builder((FragmentActivity) getContext())
-                .setTitle(passStatus)
-                .setMessage("Score is "+ score +" out of "+ totalQuestion)
-                .setCancelable(true);
+    }
 
-        // Set the "OK" button and its listener
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // Navigate back to the start of the quiz
-                getFragmentManager().beginTransaction()
-                        .replace(R.id.layout, new QuizFragment())
-                        .commit();
-            }
-        });
-
-        // Show the alert dialog
-        builder.show();
+    private void goHome() {
+        Intent intent = new Intent(getActivity(), Email.class);
+        intent.putExtra("score", score);
+        startActivity(intent);
 
     }
 
 
-    @NonNull
+ /*  @NonNull
     @Override
     public CreationExtras getDefaultViewModelCreationExtras() {
         return super.getDefaultViewModelCreationExtras();
-    }
+    }*/
 }
