@@ -29,6 +29,8 @@ public class Email extends AppCompatActivity {
         eSubject = (EditText)findViewById(R.id.txtSub);
         eMsg = (EditText)findViewById(R.id.txtMsg);
         btn = (Button)findViewById(R.id.btnSend);
+        int score =getIntent().getExtras().getInt("score");
+        eMsg.setText("Score: " + score);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,8 +40,6 @@ public class Email extends AppCompatActivity {
                         String[]{eTo.getText().toString()});
                 it.putExtra(Intent.EXTRA_SUBJECT,eSubject.getText().toString());
                 it.putExtra(Intent.EXTRA_TEXT,eMsg.getText());
-                int score = getIntent().getIntExtra("score", 0);
-                eMsg.setText("Score: " + score);
                 it.putExtra(Intent.EXTRA_TEXT, "Score: " + score);
                 it.setType("message/rfc822");
                 startActivity(Intent.createChooser(it,"Choose Mail App"));
