@@ -2,15 +2,10 @@ package com.example.a2activity.Fragments;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.viewmodel.CreationExtras;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +16,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.example.a2activity.Models.Email;
+import com.example.a2activity.Email;
 import com.example.a2activity.Models.IntrebariPitesti;
 import com.example.a2activity.R;
 

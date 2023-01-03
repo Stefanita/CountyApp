@@ -1,4 +1,4 @@
-package com.example.a2activity.Models;
+package com.example.a2activity;
 
 import android.content.Intent;
 import android.os.Bundle;

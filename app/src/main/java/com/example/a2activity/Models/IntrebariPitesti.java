@@ -3,27 +3,27 @@ package com.example.a2activity.Models;
 public class IntrebariPitesti {
 
     public static String question[] ={
-            "Ce comanda folosesti pentru a folosi un Layout?",
-            "Prin ce comanda creezi un buton?",
-            "Ce baza de date are inclusa Android Studio?",
-            "Ce limbaje foloseste Android Studio?",
-            "Cate layout-uri are Android Studio ?"
+            "Care este capitala Argesului?",
+            "Cate orase se afla in judetul Arges?",
+            "In ce regiune este situat judetul Arges?",
+            "Cate Municipii se afla in judetul Arges?",
+            "Care este indicativul autovehiculelor din Arges?"
 
     };
 
     public static String choices[][] = {
-            {"<NumeLayout></NumeLayout>","Il tragi din Pallete","Cauti pe net","Intrebi un coleg"},
-            {"<Button>","<Button .../>","<Create btnButon>","Folosesti Pallete"},
-            {"SQL","Oracle","MySql","SQLite"},
-            {"Kotlin si C#","Java si C++","Java si Kotlin","C# si C++"},
-            {"2","4","7","10"}
+            {"Bucuresti","Mioveni","Stefanesti","Pitesti"},
+            {"4","5","6","7"},
+            {"Dobrogea","Muntenia","Banat","Crisana"},
+            {"3","7","4","6"},
+            {"AB","AR","AP","AG"}
     };
 
     public static String correctAnswers[] = {
-            "<NumeLayout></NumeLayout>",
-            "<Button .../>",
-            "SQLite",
-            "Java si Kotlin",
-            "7"
+            "Pitesti",
+            "7",
+            "Muntenia",
+            "3",
+            "AG"
     };
 }
