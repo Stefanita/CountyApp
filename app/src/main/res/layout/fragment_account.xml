@@ -10,29 +10,18 @@
     <!-- TODO: Update blank fragment layout -->
 
 
-    <ImageView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:id="@+id/userimg"
-        android:src="@drawable/admin"
-        app:layout_constraintBottom_toTopOf="@+id/usernameTXT"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
     <TextView
         android:id="@+id/usernameTXT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="188dp"
         android:text="UserName :"
         android:textColor="@color/white"
 
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -75,31 +64,6 @@
         app:layout_constraintLeft_toRightOf="@id/mailidTXT"
         app:layout_constraintRight_toRightOf="@id/usernameFrmSgnUpPg"
         app:layout_constraintTop_toTopOf="@id/mailidTXT" />
-
-    <TextView
-        android:id="@+id/PassTXT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:text="Password\t:"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="@id/mailidTXT"
-        app:layout_constraintRight_toLeftOf="@id/passFrmSgnUpPg"
-        app:layout_constraintTop_toBottomOf="@id/mailidTXT" />
-
-    <TextView
-        android:id="@+id/passFrmSgnUpPg"
-        android:layout_width="234dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="14dp"
-        android:drawableLeft="@drawable/ic_baseline_password_24"
-        android:drawablePadding="6dp"
-        app:layout_constraintBottom_toBottomOf="@id/PassTXT"
-        app:layout_constraintLeft_toRightOf="@id/PassTXT"
-        app:layout_constraintRight_toRightOf="@id/mailidFrmSgnUpPg"
-        app:layout_constraintTop_toTopOf="@id/PassTXT" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

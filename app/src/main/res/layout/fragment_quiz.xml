@@ -29,13 +29,16 @@
         android:id="@+id/tvIntrebare"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
+        android:gravity="center"
         android:text="@string/intrebare_text"
         android:textColor="@color/white"
-android:layout_marginStart="-100dp"
         app:layout_constraintBottom_toTopOf="@+id/rg1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNrINTR" />
+        app:layout_constraintTop_toBottomOf="@+id/tvNrINTR"
+        app:layout_constraintVertical_bias="0.516" />
 
     <RadioGroup
         android:id="@+id/rg1"

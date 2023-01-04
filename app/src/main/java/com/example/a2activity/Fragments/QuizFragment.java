@@ -37,8 +37,8 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
     RadioButton raspADam,raspBDam,raspCDam,raspDDam;
     Button btnNextDam;
     TextView tvScorDam,tvIntrebareDam,tvNrINTR;
-    private EditText eTo, eSubject, eMsg;
-    Button btn;
+   /* private EditText eTo, eSubject, eMsg;
+    Button btn;*/
 
     int score=0;
     int totalQuestion= IntrebariPitesti.question.length;
@@ -79,10 +79,10 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         btnNextDam.setOnClickListener(this);
 
         //setContentView(R.layout.activity_email);
-        eTo = (EditText)view.findViewById(R.id.txtTo);
+     /*   eTo = (EditText)view.findViewById(R.id.txtTo);
         eSubject = (EditText)view.findViewById(R.id.txtSub);
         eMsg = (EditText)view.findViewById(R.id.txtMsg);
-        btn = (Button)view.findViewById(R.id.btnSend);
+        btn = (Button)view.findViewById(R.id.btnSend);*/
 
         tvNrINTR.setText("Total questions : "+totalQuestion);
 
@@ -155,7 +155,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         Intent intent = new Intent(getActivity(), Email.class);
         intent.putExtra("score", score);
         startActivity(intent);
-
+        btnNextDam.setEnabled(false);
     }
 
 
