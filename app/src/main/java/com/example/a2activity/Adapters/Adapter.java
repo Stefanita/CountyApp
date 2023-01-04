@@ -1,47 +1,67 @@
 package com.example.a2activity.Adapters;
 
+import android.app.Fragment;
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager.widget.PagerAdapter;
 
+import com.example.a2activity.Fragments.GalleryFragment;
+import com.example.a2activity.Models.Model;
 import com.example.a2activity.R;
+
+import java.util.List;
 
 public class Adapter extends PagerAdapter {
 
+    private List<Model>models;
+    private LayoutInflater layoutInflater;
+    private Context context;
 
-    public FragmentActivity ctx;
-    private int[] ImageArray= new int[]{R.drawable.png_principala, R.drawable.primaria ,R.drawable.ramada, R.drawable.mall, R.drawable.strand ,R.drawable.lunca ,R.drawable.trivale};
-
-    public Adapter(FragmentActivity context){ctx=context;}
-
-    @Override
-        public int getCount () {
-            return ImageArray.length;
-        }
+    public Adapter(List<Model> models, Context context) {
+        this.models = models;
+        this.context = context;
+    }
 
     @Override
-        public boolean isViewFromObject (@NonNull View view, @NonNull Object object){
-            return view == object;
-        }
+    public int getCount() {
+        return models.size();
+    }
 
-        @NonNull
-        @Override
-        public Object instantiateItem (@NonNull ViewGroup container,int position){
-            ImageView imageView = new ImageView(ctx);
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            imageView.setImageResource(ImageArray[position]);
-            container.addView(imageView, 0);
-            return imageView;
-        }
+    @Override
+    public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
+        return view.equals(object);
+    }
 
-        @Override
-        public void destroyItem (@NonNull ViewGroup container,int position, @NonNull Object object){
-            container.removeView((ImageView) object);
-        }
+    @NonNull
+    @Override
+    public Object instantiateItem(@NonNull ViewGroup container, int position) {
+        layoutInflater=LayoutInflater.from(context);
+        View view=layoutInflater.inflate(R.layout.item,container,false);
 
+        ImageView imageView;
+        TextView title,desc;
 
+        imageView=view.findViewById(R.id.image);
+        title=view.findViewById(R.id.title);
+        desc=view.findViewById(R.id.desc);
+
+        imageView.setImageResource(models.get(position).getImage());
+        title.setText(models.get(position).getTitle());
+        desc.setText(models.get(position).getDesc());
+
+        container.addView(view,0);
+
+        return view;
+    }
+
+    @Override
+    public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
+        container.removeView((View) object);
+    }
 }

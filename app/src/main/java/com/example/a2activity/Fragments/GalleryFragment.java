@@ -1,5 +1,7 @@
 package com.example.a2activity.Fragments;
 
+import android.animation.ArgbEvaluator;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,7 +13,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.a2activity.Adapters.Adapter;
+import com.example.a2activity.Models.Model;
 import com.example.a2activity.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,8 +34,13 @@ public class GalleryFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    ViewPager viewPager;
+    Adapter adapter;
+    List<Model> models;
+    Integer[] colors=null;
+    ArgbEvaluator argbEvaluator=new ArgbEvaluator();
 
-    private Adapter adapter;
+    //private Adapter adapter;
 
     public GalleryFragment() {
         // Required empty public constructor
@@ -68,10 +79,64 @@ public class GalleryFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_gallery, container, false);
-        ViewPager viewPager= view.findViewById(R.id.viewPager);
 
-        Adapter adapter=new Adapter((FragmentActivity) getContext());
+
+
+
+        models=new ArrayList<>();
+        models.add(new Model(R.drawable.png_principala,"Pitesti Centru","NO FAINOSAG"));
+
+        adapter = new Adapter(models, getContext());
+
+        viewPager=view.findViewById(R.id.viewPager);
         viewPager.setAdapter(adapter);
+        viewPager.setPadding(130,0,130,0);
+
+        Integer[] colors_temp={
+                getResources().getColor(R.color.color1),
+                getResources().getColor(R.color.color2),
+                getResources().getColor(R.color.color3),
+                getResources().getColor(R.color.color4)
+        };
+
+        colors=colors_temp;
+
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+                if(position<(adapter.getCount()-1) && position <(colors.length -1)){
+                    int color = (Integer) argbEvaluator.evaluate(
+                            positionOffset,
+                            colors[position],
+                            colors[position + 1]
+                    );
+                }
+                else{
+                    viewPager.setBackgroundColor(colors[colors.length-1]);
+                }
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+
+
+
+
+        //ViewPager viewPager= view.findViewById(R.id.viewPager);
+
+        //Adapter adapter=new Adapter((FragmentActivity) getContext());
+       // viewPager.setAdapter(adapter);
 
         return view;
     }
