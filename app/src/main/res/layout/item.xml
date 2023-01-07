@@ -18,7 +18,6 @@
             
             <ImageView
                 android:id="@+id/image"
-                android:src="@drawable/muzeul_judetean"
                 android:scaleType="centerCrop"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"/>
@@ -29,7 +28,7 @@
                 android:layout_below="@id/image"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="16dp"
-                android:text="Pitesti Centru"
+                android:text="Ceva"
                 android:textSize="16sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>

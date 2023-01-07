@@ -70,13 +70,14 @@ public class InfoFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_info, container, false);
-        mywebView=(WebView) view.findViewById(R.id.webview);
+        mywebView=(WebView) view.findViewById(R.id.webView);
          mywebView.setWebViewClient(new WebViewClient());
          mywebView.loadUrl("https://ro.wikipedia.org/wiki/Jude%C8%9Bul_Arge%C8%99");
         WebSettings webSettings=mywebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
-
+//asta se dechide cand apesi pe o pagina web?
+        // da cand apesi pe butonu x iti d
       return view;
     }
 

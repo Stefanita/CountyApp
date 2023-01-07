@@ -5,9 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.TextView;
-
-import java.nio.charset.StandardCharsets;
 
 public class DBHelper extends SQLiteOpenHelper {
     public static final String DBNAME="login.db";
@@ -20,12 +17,12 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        db.execSQL("create table users(username TEXT primary key, password TEXT, email Text)");
-
+        db.execSQL("CREATE TABLE users (username TEXT PRIMARY KEY, password TEXT, email TEXT)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
 
         db.execSQL("drop table if exists users");
 
@@ -35,37 +32,37 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = mContext.openOrCreateDatabase(DBNAME, Context.MODE_PRIVATE, null);
         Cursor cursor=db.rawQuery("select * from users where username=?",new String[]{username});
 
-      if(cursor.getCount()>0)
-          return true;
-      else
-          return false;
-
+        if(cursor.getCount()>0)
+            return true;
+        else
+            return false;
     }
 
-    public Boolean checkusernamepassword(String username, String password) {
-        SQLiteDatabase db = mContext.openOrCreateDatabase(DBNAME, Context.MODE_PRIVATE, null);
-        Cursor cursor = db.rawQuery("select * from users where username=? and password=?", new String[]{username, password});
+    public Boolean checkUsernamePassword(String username, String password) {
+        //SQLiteDatabase db = mContext.openOrCreateDatabase(DBNAME, Context.MODE_PRIVATE, null);
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from users where username=? and password=?", new String[]{username, password});//de aici moare
         System.out.println("The cursor is:"+cursor);
-        if (cursor.getCount() > 0)
+
+        return cursor.getCount() >0;
+    }
+
+    public Boolean insertData(String username,String password, String email){
+        SQLiteDatabase db = mContext.openOrCreateDatabase(DBNAME, Context.MODE_PRIVATE, null);
+        ContentValues values = new ContentValues();
+        values.put("username", username);
+        values.put("password", password);
+        values.put("email", email);
+
+        //deci in values ai urmatoarele valori [username, email, password]
+        //dar nu ti le pune bine in tabel care are coloanele in alta ordine
+        long result = db.insert("users", null, values);
+        db.close();
+        if (result == -1)
             return false;
         else
             return true;
     }
-
-        public Boolean insertData(String username,String password, String email){
-            SQLiteDatabase db = mContext.openOrCreateDatabase(DBNAME, Context.MODE_PRIVATE, null);
-            ContentValues values = new ContentValues();
-            values.put("username", username);
-            values.put("email", email);
-            values.put("password", password);
-
-            long result = db.insert("users", null, values);
-            db.close();
-            if (result == -1)
-                return false;
-            else
-                return true;
-        }
 
     public String[] CheckData(String username) {
         String[] values = new String[2]; // create a string array to store the values

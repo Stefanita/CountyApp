@@ -75,9 +75,16 @@ public class AccountFragment extends Fragment {
         TextView emailView = view.findViewById(R.id.mailidFrmSgnUpPg);
 
 
-        String[] data = DB.CheckData("username");
-        usernameView.setText(data[0]);
-        emailView.setText(data[1]);
+//        String[] data = DB.CheckData("username");
+//username nu e cunoscut
+//        usernameView.setText(data[0]);
+//        emailView.setText(data[1]);
+
+        Bundle bundle = getArguments();
+        if(bundle!=null){
+            usernameView.setText(bundle.getString("username") + " ");
+            emailView.setText(bundle.getString("email")+ " ");
+        }
 
     return view;
     }

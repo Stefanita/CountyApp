@@ -83,16 +83,11 @@ public class Adapter extends PagerAdapter {
                                 intent.putExtra("SBOras",models.get(position).getTitle());
                                 intent.putExtra("MessageOras",models.get(position).getDescription()+ models.get(position).getURL() +" " );
                                 context.startActivity(intent);
+                                break;
                             case R.id.more:
-                           gotoUrl("https://www.cjarges.ro/muzeul-judetean");
-                          /* gotoUrl("https://www.cjarges.ro/manastirea-curtea-de-arges");
-                           gotoUrl("https://ro.wikipedia.org/wiki/Valea_Rea,_Mun%C8%9Bii_F%C4%83g%C4%83ra%C8%99");
-                           gotoUrl("https://www.cjarges.ro/muzeul-golesti");
-                           gotoUrl("https://www.cjarges.ro/barajul-si-lacul-de-acumulare-vidraru");
-                           gotoUrl("https://www.cjarges.ro/transfagarasan");*/
+                           gotoUrl(models.get(position).getURL());
+                           break;
                         }
-
-                        Toast.makeText(context, "You Clicked " + menuItem.getTitle(), Toast.LENGTH_SHORT).show();
                         return true;
                     }
 

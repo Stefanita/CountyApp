@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.a2activity.Database.DBHelper;
-import com.google.android.material.button.MaterialButton;
 
 public class Singup extends AppCompatActivity {
 
@@ -40,13 +39,13 @@ public class Singup extends AppCompatActivity {
                 String repass=repassword.getText().toString();
 
                 if(TextUtils.isEmpty(user) || TextUtils.isEmpty(email) || TextUtils.isEmpty(pass) || TextUtils.isEmpty(repass))
-                    Toast.makeText(Singup.this,"All fields Requierd",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Singup.this,"All fields Required",Toast.LENGTH_SHORT).show();
                 else{
                     if(pass.equals(repass)){
                         Boolean checkuser=DB.checkusername(user);
-                        if(checkuser==false){
-                            Boolean insert = DB.insertData(user,email,pass);
-                            if(insert==true){
+                        if(!checkuser){ //false deci nu e in baza de date
+                            Boolean insert = DB.insertData(user,pass,email);
+                            if(insert){ //s-a putut insera
                                 Toast.makeText(Singup.this,"Registed Succesfully",Toast.LENGTH_SHORT).show();
                                 Intent intent =new Intent(getApplicationContext(),MainActivity.class);
                                 startActivity(intent);
@@ -57,7 +56,7 @@ public class Singup extends AppCompatActivity {
                             Toast.makeText(Singup.this,"User already Exist",Toast.LENGTH_SHORT).show();
                         }
                     }else{
-                        Toast.makeText(Singup.this,"Passwords are not matching",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Singup.this,"Passwords are not matching",Toast.LENGTH_SHORT).show(); //asta trebuia sa fie mai intai verificata cred eu da e irelevent
                     }
                 }
 

@@ -8,11 +8,9 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.a2activity.Database.DBHelper;
-import com.google.android.material.button.MaterialButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,11 +39,13 @@ public class MainActivity extends AppCompatActivity {
                 if(TextUtils.isEmpty(user) || TextUtils.isEmpty(pass))
                     Toast.makeText(MainActivity.this,"All fields Requierd",Toast.LENGTH_SHORT).show();
                 else{
-                    Boolean checkuserpass=DB.checkusernamepassword(user,pass);
+                    Boolean checkuserpass=DB.checkUsernamePassword(user,pass);
                     if(checkuserpass==true){
                         Toast.makeText(MainActivity.this,"Login Successfull",Toast.LENGTH_SHORT).show();
                         Intent intent =new Intent(getApplicationContext(),Secondactivity.class);
+                        intent.putExtra("username", user); //aici dau pass la username ul cu care m am conectat da?da
                         startActivity(intent);
+
                     }else{
                         Toast.makeText(MainActivity.this,"Login Failed",Toast.LENGTH_SHORT).show();
                     }
