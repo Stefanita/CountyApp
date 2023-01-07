@@ -4,12 +4,14 @@ public class Model {
 
     private int image;
     private String title;
-    private String desc;
+    private String description;
+    private String URL;
 
-    public Model(int image, String title, String desc) {
+    public Model(int image, String title, String desc, String URL) {
         this.image = image;
         this.title = title;
-        this.desc = desc;
+        this.description = desc;
+        this.URL = URL;
     }
 
     public int getImage() {
@@ -28,11 +30,19 @@ public class Model {
         this.title = title;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getURL() {
+        return URL;
+    }
+
+    public void setURL(String URL) {
+        this.URL = URL;
     }
 }

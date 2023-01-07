@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         btnlogin=findViewById(R.id.loginbtn);
         DB=new DBHelper(this);
 
-        //admin and admin
 
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override

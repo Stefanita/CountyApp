@@ -28,6 +28,7 @@
     <TextView
         android:id="@+id/usernameFrmSgnUpPg"
         android:layout_width="230dp"
+        android:textColor="@color/white"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:drawableLeft="@drawable/ic_baseline_person_24"
@@ -54,6 +55,7 @@
     <TextView
         android:id="@+id/mailidFrmSgnUpPg"
         android:layout_width="233dp"
+        android:textColor="@color/white"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:drawableLeft="@drawable/ic_baseline_email_24"

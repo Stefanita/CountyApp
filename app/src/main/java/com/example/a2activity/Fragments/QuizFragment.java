@@ -145,15 +145,16 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
                     .setTitle(passStatus)
                     .setMessage("Score is "+ score+" out of "+ totalQuestion)
                     .setPositiveButton("Email",(dialogInterface, i) -> goHome() )
-                    .setCancelable(false)
+                    .setCancelable(true)
                     .show();
+            btnNextDam.setEnabled(false);
         }
 
     }
 
     private void goHome() {
         Intent intent = new Intent(getActivity(), Email.class);
-        intent.putExtra("score", score);
+        intent.putExtra("score", score);  // "score" reprezinta id-ul dupa care este recunoscut parapetrul scor
         startActivity(intent);
         btnNextDam.setEnabled(false);
     }

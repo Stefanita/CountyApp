@@ -1,23 +1,25 @@
 package com.example.a2activity.Fragments;
 
 import android.animation.ArgbEvaluator;
+import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.PopupMenu;
+import android.widget.Toast;
 
 import com.example.a2activity.Adapters.Adapter;
+import com.example.a2activity.Email;
 import com.example.a2activity.Models.Model;
 import com.example.a2activity.R;
-import com.example.a2activity.Singup;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,17 +86,16 @@ public class GalleryFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_gallery, container, false);
 
         Button btnSeemore;
-
-
         models=new ArrayList<>();
-        models.add(new Model(R.drawable.muzeul_judetean,"Muzeul judetean","Muzeul Judeţean Argeş este instituţia muzeală argeşeană proeminentă care tezaurizează colecţii de obiecte remarcabile spre ilustrarea civilizaţiei argeşene şi româneşti."));
-        models.add(new Model(R.drawable.manastirea_curtea_de_arges,"Manastirea Curtea de Arges","Una dintre cea mai încărcate spiritual, istoric și cultural, așezări din județul Argeș  este orașul Curtea de Argeș. Capitala a Țării Românești, Curtea de Argeș poartă cu sine  secole de istorie, civilizație și cultură, și  arată cu mândrie locuitorilor săi, dar și turiștilor care o vizitează minunile arhitecturale pe care le poseda."));
-        models.add(new Model(R.drawable.download,"Lacul Vidraru", "Barajul Vidraru a fost construit pe raul Arges in 1965 fiind primul baraj construit in Romania. Este un baraj in arc cu inaltimea de 166,60 m, iar lungimea coronamentului este de 305 m. Grosimea barajului la baza este 25 m iar la coronament 6 m. Lacul, in conditii optime are o suprafata de 870 de hectare si 465 milioane metrii cubi de apa."));
-        models.add(new Model(R.drawable.drum,"Transfagrasan","Un drum magic…asta reprezintă șoseaua printre munții Făgărașului, ce începe din localitatea Bascov, județul Argeș, și se termină în apropierea localității Cârțișoara, județul Sibiu. Te lasă pur și simplu fără răsuflare, fără cuvinte și profund impresionat toată această împrejmuire."));
-        models.add(new Model(R.drawable.valea_rea,"Valea rea","Valea Rea este o vale orientată nord-sud din partea sudică a munților Făgăraș din județul Argeș. Valea, prin care curge cursul de apă omonim, râul Valea Rea, este una din căile de acces cele mai directe, dar și cele mai dificile, către cel mai înalt vârf montan din România, vârful Vârful Moldoveanu."));
-        models.add(new Model(R.drawable.golesti,"Muzeul Golesti","Situat în orașul Ștefănești, la doar 10 kilometri de Pitești, pe șoseaua veche Pitești - București, Muzeul Viticulturii și Pomiculturii Golești este o adevărată bijuterie a meleagurilor argeșene, fiind un loc încărcat de istorie și tradiții populare."));
+        models.add(new Model(R.drawable.muzeul_judetean,"Muzeul judetean",getString(R.string.DescMuzeuJudetean),getString(R.string.UrlMuzeulJudetean)));
+        models.add(new Model(R.drawable.manastirea_curtea_de_arges,"Manastirea Curtea de Arges",getString(R.string.DescCurteaDeArges),getString(R.string.UrlCurteaDeArges)));
+        models.add(new Model(R.drawable.download,"Lacul Vidraru", getString(R.string.DescLaculVidraru),getString(R.string.UrlLaculVidraru)));
+        models.add(new Model(R.drawable.drum,"Transfagrasan",getString(R.string.DescTransfagrasan),getString(R.string.UrlTransfagrasan)));
+        models.add(new Model(R.drawable.valea_rea,"Valea rea",getString(R.string.DescValeaRea),getString(R.string.UrlValeaRea)));
+        models.add(new Model(R.drawable.golesti,"Muzeul Golesti",getString(R.string.DescGolesti),getString(R.string.UrlMuzeulGolesti)));
 
-        btnSeemore=view.findViewById(R.id.btnSeemore);
+      //  btnSeemore=view.findViewById(R.id.btnSeeMore);
+
 
         adapter = new Adapter(models, getContext());
 
@@ -102,50 +103,35 @@ public class GalleryFragment extends Fragment {
         viewPager.setAdapter(adapter);
         viewPager.setPadding(130,0,130,0);
 
-        Integer[] colors_temp={
-                getResources().getColor(R.color.color1),
-                getResources().getColor(R.color.color2),
-                getResources().getColor(R.color.color3),
-                getResources().getColor(R.color.color4)
-        };
-
-        colors=colors_temp;
-
-        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-                if(position<(adapter.getCount()-1) && position <(colors.length -1)){
-                    int color = (Integer) argbEvaluator.evaluate(
-                            positionOffset,
-                            colors[position],
-                            colors[position + 1]
-                    );
-                }
-                else{
-                    viewPager.setBackgroundColor(colors[colors.length-1]);
-                }
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
-
-        btnSeemore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+//        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//
+//                if(position<(adapter.getCount()-1) && position <(colors.length -1)){
+//                    int color = (Integer) argbEvaluator.evaluate(
+//                            positionOffset,
+//                            colors[position],
+//                            colors[position + 1]
+//                    );
+//                }
+//                else{
+//                    viewPager.setBackgroundColor(colors[colors.length-1]);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onPageSelected(int position) {
+//
+//            }
+//
+//            @Override
+//            public void onPageScrollStateChanged(int state) {
+//
+//            }
+//        });
 
 
-            }
-        });
 
 
 

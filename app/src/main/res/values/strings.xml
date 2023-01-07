@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ArgesCountry</string>
+    <string name="app_name">ArgesCounty</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -11,5 +11,20 @@
     <string name="intrebare_text">Intrebare</string>
     <string name="scor_text">Scor</string>
     <string name="api_key">48a9e47646a746fe8e342ebe06240ddf</string>
+
+    <string name="DescMuzeuJudetean">Muzeul Judeţean Argeş este instituţia muzeală argeşeană proeminentă care tezaurizează colecţii de obiecte remarcabile spre ilustrarea civilizaţiei argeşene şi româneşti.</string>
+    <string name="DescCurteaDeArges">"Una dintre cea mai încărcate spiritual, istoric și cultural, așezări din județul Argeș  este orașul Curtea de Argeș. Capitala a Țării Românești, Curtea de Argeș poartă cu sine  secole de istorie, civilizație și cultură, și  arată cu mândrie locuitorilor săi, dar și turiștilor care o vizitează minunile arhitecturale pe care le poseda."</string>
+    <string name="DescLaculVidraru">"Barajul Vidraru a fost construit pe raul Arges in 1965 fiind primul baraj construit in Romania. Este un baraj in arc cu inaltimea de 166,60 m, iar lungimea coronamentului este de 305 m. Grosimea barajului la baza este 25 m iar la coronament 6 m. Lacul, in conditii optime are o suprafata de 870 de hectare si 465 milioane metrii cubi de apa."</string>
+    <string name="DescTransfagrasan">"Un drum magic…asta reprezintă șoseaua printre munții Făgărașului, ce începe din localitatea Bascov, județul Argeș, și se termină în apropierea localității Cârțișoara, județul Sibiu. Te lasă pur și simplu fără răsuflare, fără cuvinte și profund impresionat toată această împrejmuire."</string>
+    <string name="DescValeaRea">"Valea Rea este o vale orientată nord-sud din partea sudică a munților Făgăraș din județul Argeș. Valea, prin care curge cursul de apă omonim, râul Valea Rea, este una din căile de acces cele mai directe, dar și cele mai dificile, către cel mai înalt vârf montan din România, vârful Vârful Moldoveanu."</string>
+    <string name="DescGolesti">"Situat în orașul Ștefănești, la doar 10 kilometri de Pitești, pe șoseaua veche Pitești - București, Muzeul Viticulturii și Pomiculturii Golești este o adevărată bijuterie a meleagurilor argeșene, fiind un loc încărcat de istorie și tradiții populare."</string>
+    <string name="UrlMuzeulJudetean">https://www.cjarges.ro/muzeul-judetean</string>
+    <string name="UrlCurteaDeArges">https://www.cjarges.ro/manastirea-curtea-de-arges</string>
+    <string name="UrlValeaRea">https://ro.wikipedia.org/wiki/Valea_Rea,_Mun%C8%9Bii_F%C4%83g%C4%83ra%C8%99</string>
+    <string name="UrlMuzeulGolesti">https://www.cjarges.ro/muzeul-golesti</string>
+    <string name="UrlLaculVidraru">https://www.cjarges.ro/barajul-si-lacul-de-acumulare-vidraru</string>
+    <string name="UrlTransfagrasan">https://www.cjarges.ro/transfagarasan</string>
+
+
 
 </resources>

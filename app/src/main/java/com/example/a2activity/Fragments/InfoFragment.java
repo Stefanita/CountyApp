@@ -71,10 +71,10 @@ public class InfoFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_info, container, false);
         mywebView=(WebView) view.findViewById(R.id.webview);
-      mywebView.setWebViewClient(new WebViewClient());
-      mywebView.loadUrl("https://ro.wikipedia.org/wiki/Jude%C8%9Bul_Arge%C8%99");
-      WebSettings webSettings=mywebView.getSettings();
-      webSettings.setJavaScriptEnabled(true);
+         mywebView.setWebViewClient(new WebViewClient());
+         mywebView.loadUrl("https://ro.wikipedia.org/wiki/Jude%C8%9Bul_Arge%C8%99");
+        WebSettings webSettings=mywebView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
 
 
       return view;
