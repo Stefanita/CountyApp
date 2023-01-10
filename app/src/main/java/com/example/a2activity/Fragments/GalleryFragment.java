@@ -85,7 +85,7 @@ public class GalleryFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_gallery, container, false);
 
-        Button btnSeemore;
+
         models=new ArrayList<>();
         models.add(new Model(getString(R.string.urlMuzJudeteanAgPoza),"Muzeul judetean",getString(R.string.DescMuzeuJudetean),getString(R.string.UrlMuzeulJudetean)));
         models.add(new Model(getString(R.string.urlManastireaArgesPoza),"Manastirea Curtea de Arges",getString(R.string.DescCurteaDeArges),getString(R.string.UrlCurteaDeArges)));
@@ -94,7 +94,6 @@ public class GalleryFragment extends Fragment {
         models.add(new Model(getString(R.string.urlValeaReaPoza),"Valea rea",getString(R.string.DescValeaRea),getString(R.string.UrlValeaRea)));
         models.add(new Model(getString(R.string.UrlMuzeulGolesti),"Muzeul Golesti",getString(R.string.DescGolesti),getString(R.string.UrlMuzeulGolesti)));
 
-      //  btnSeemore=view.findViewById(R.id.btnSeeMore);
 
 
         adapter = new Adapter(models, getContext());
@@ -103,44 +102,6 @@ public class GalleryFragment extends Fragment {
         viewPager.setAdapter(adapter);
         viewPager.setPadding(130,0,130,0);
 
-//        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-//            @Override
-//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//
-//                if(position<(adapter.getCount()-1) && position <(colors.length -1)){
-//                    int color = (Integer) argbEvaluator.evaluate(
-//                            positionOffset,
-//                            colors[position],
-//                            colors[position + 1]
-//                    );
-//                }
-//                else{
-//                    viewPager.setBackgroundColor(colors[colors.length-1]);
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onPageSelected(int position) {
-//
-//            }
-//
-//            @Override
-//            public void onPageScrollStateChanged(int state) {
-//
-//            }
-//        });
-
-
-
-
-
-
-
-        //ViewPager viewPager= view.findViewById(R.id.viewPager);
-
-        //Adapter adapter=new Adapter((FragmentActivity) getContext());
-       // viewPager.setAdapter(adapter);
 
         return view;
     }

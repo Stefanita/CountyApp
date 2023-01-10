@@ -43,9 +43,9 @@ public class Singup extends AppCompatActivity {
                 else{
                     if(pass.equals(repass)){
                         Boolean checkuser=DB.checkusername(user);
-                        if(!checkuser){ //false deci nu e in baza de date
+                        if(!checkuser){
                             Boolean insert = DB.insertData(user,pass,email);
-                            if(insert){ //s-a putut insera
+                            if(insert){
                                 Toast.makeText(Singup.this,"Registed Succesfully",Toast.LENGTH_SHORT).show();
                                 Intent intent =new Intent(getApplicationContext(),MainActivity.class);
                                 startActivity(intent);

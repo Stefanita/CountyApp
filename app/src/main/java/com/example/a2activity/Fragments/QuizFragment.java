@@ -37,8 +37,6 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
     RadioButton raspADam,raspBDam,raspCDam,raspDDam;
     Button btnNextDam;
     TextView tvScorDam,tvIntrebareDam,tvNrINTR;
-   /* private EditText eTo, eSubject, eMsg;
-    Button btn;*/
 
     int score=0;
     int totalQuestion= IntrebariPitesti.question.length;
@@ -78,12 +76,6 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         raspDDam.setOnClickListener(this);
         btnNextDam.setOnClickListener(this);
 
-        //setContentView(R.layout.activity_email);
-     /*   eTo = (EditText)view.findViewById(R.id.txtTo);
-        eSubject = (EditText)view.findViewById(R.id.txtSub);
-        eMsg = (EditText)view.findViewById(R.id.txtMsg);
-        btn = (Button)view.findViewById(R.id.btnSend);*/
-
         tvNrINTR.setText("Total questions : "+totalQuestion);
 
         loadNewQuestion();
@@ -106,9 +98,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
 
 
         }else{
-            //choices button clicked
             selectedAnswer  = clickedButton.getText().toString();
-            //  rg1.clearCheck();
 
         }
 
@@ -154,15 +144,11 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
 
     private void goHome() {
         Intent intent = new Intent(getActivity(), Email.class);
-        intent.putExtra("score", score);  // "score" reprezinta id-ul dupa care este recunoscut parapetrul scor
+        intent.putExtra("score", score);
         startActivity(intent);
         btnNextDam.setEnabled(false);
     }
 
 
- /*  @NonNull
-    @Override
-    public CreationExtras getDefaultViewModelCreationExtras() {
-        return super.getDefaultViewModelCreationExtras();
-    }*/
+
 }

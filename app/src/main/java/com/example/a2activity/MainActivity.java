@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                     if(checkuserpass==true){
                         Toast.makeText(MainActivity.this,"Login Successfull",Toast.LENGTH_SHORT).show();
                         Intent intent =new Intent(getApplicationContext(),Secondactivity.class);
-                        intent.putExtra("username", user); //aici dau pass la username ul cu care m am conectat da?da
+                        intent.putExtra("username", user);
                         startActivity(intent);
 
                     }else{

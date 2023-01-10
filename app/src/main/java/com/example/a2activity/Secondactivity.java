@@ -30,8 +30,7 @@ public class Secondactivity extends AppCompatActivity {
         if(b!=null)
         {
             String j =(String) b.get("username");
-            username = j; //aici preiau username ul cu care m am conectat da?da
-            //Toast.makeText(getBaseContext(), email, Toast.LENGTH_SHORT).show();
+            username = j;
         }
 
 
@@ -56,18 +55,16 @@ public class Secondactivity extends AppCompatActivity {
                     replaceFragment(new QuizFragment());
                     break;
                 case R.id.accont:
-                    //caut in baza de date emailul cu username ul cu care m am conectat
                     DBHelper db = new DBHelper(getApplicationContext());
                     String[] values = db.CheckData(username);
                     Bundle bundle= new Bundle();
                     bundle.putString("username", values[0]);
-                    bundle.putString("email", values[1]); //trebuie cautat in baza de date mai intai
+                    bundle.putString("email", values[1]);
 
                     Fragment fragment = new AccountFragment();
                     fragment.setArguments(bundle);
 
-                    //acum trebuie cauti in baza de date emailul aferent username ului si sa ii dai pass
-                    //prin putString
+
                     replaceFragment(fragment);
                     break;
 

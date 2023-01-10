@@ -76,8 +76,7 @@ public class InfoFragment extends Fragment {
         WebSettings webSettings=mywebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
-//asta se dechide cand apesi pe o pagina web?
-        // da cand apesi pe butonu x iti d
+
       return view;
     }
 
@@ -92,14 +91,5 @@ public class InfoFragment extends Fragment {
             return true;
         }
     }
-
-  /*  @Override
-    public void onBackPressed() {
-        if (mywebView.canGoBack()) {
-            mywebView.goBack();
-        } else {
-            super.onBackPressed();
-        }
-    }*/
 
 }

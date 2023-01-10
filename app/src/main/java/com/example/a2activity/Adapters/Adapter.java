@@ -62,7 +62,7 @@ public class Adapter extends PagerAdapter {
 
         Picasso.get().load(models.get(position).getImage()).into(imageView);
 
-       // imageView.setImageResource(models.get(position).getImage());
+
         title.setText(models.get(position).getTitle());
         desc.setText(models.get(position).getDescription());
 
@@ -72,7 +72,6 @@ public class Adapter extends PagerAdapter {
             @Override
             public void onClick(View view) {
                 PopupMenu popupMenu = new PopupMenu(context, btn);
-                // Inflating popup menu from popup_menu.xml file
                 popupMenu.getMenuInflater().inflate(R.menu.popup_menu,
                         popupMenu.getMenu());
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -100,7 +99,6 @@ public class Adapter extends PagerAdapter {
                         context.startActivity(launchBrowser);
                     }
                 });
-                // Showing the popup menu
                 popupMenu.show();
             }
         });

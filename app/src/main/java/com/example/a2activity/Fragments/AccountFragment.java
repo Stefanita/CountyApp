@@ -75,10 +75,7 @@ public class AccountFragment extends Fragment {
         TextView emailView = view.findViewById(R.id.mailidFrmSgnUpPg);
 
 
-//        String[] data = DB.CheckData("username");
-//username nu e cunoscut
-//        usernameView.setText(data[0]);
-//        emailView.setText(data[1]);
+
 
         Bundle bundle = getArguments();
         if(bundle!=null){
