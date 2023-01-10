@@ -2,23 +2,23 @@ package com.example.a2activity.Models;
 
 public class Model {
 
-    private int image;
+    private String image;
     private String title;
     private String description;
     private String URL;
 
-    public Model(int image, String title, String desc, String URL) {
+    public Model(String image, String title, String desc, String URL) {
         this.image = image;
         this.title = title;
         this.description = desc;
         this.URL = URL;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

@@ -20,6 +20,7 @@ import androidx.viewpager.widget.PagerAdapter;
 import com.example.a2activity.Email;
 import com.example.a2activity.Models.Model;
 import com.example.a2activity.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -59,7 +60,9 @@ public class Adapter extends PagerAdapter {
         desc=view.findViewById(R.id.desc);
         btn = view.findViewById(R.id.btnSeeMore);
 
-        imageView.setImageResource(models.get(position).getImage());
+        Picasso.get().load(models.get(position).getImage()).into(imageView);
+
+       // imageView.setImageResource(models.get(position).getImage());
         title.setText(models.get(position).getTitle());
         desc.setText(models.get(position).getDescription());
 

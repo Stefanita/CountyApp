@@ -87,12 +87,12 @@ public class GalleryFragment extends Fragment {
 
         Button btnSeemore;
         models=new ArrayList<>();
-        models.add(new Model(R.drawable.muzeul_judetean,"Muzeul judetean",getString(R.string.DescMuzeuJudetean),getString(R.string.UrlMuzeulJudetean)));
-        models.add(new Model(R.drawable.manastirea_curtea_de_arges,"Manastirea Curtea de Arges",getString(R.string.DescCurteaDeArges),getString(R.string.UrlCurteaDeArges)));
-        models.add(new Model(R.drawable.download,"Lacul Vidraru", getString(R.string.DescLaculVidraru),getString(R.string.UrlLaculVidraru)));
-        models.add(new Model(R.drawable.drum,"Transfagrasan",getString(R.string.DescTransfagrasan),getString(R.string.UrlTransfagrasan)));
-        models.add(new Model(R.drawable.valea_rea,"Valea rea",getString(R.string.DescValeaRea),getString(R.string.UrlValeaRea)));
-        models.add(new Model(R.drawable.golesti,"Muzeul Golesti",getString(R.string.DescGolesti),getString(R.string.UrlMuzeulGolesti)));
+        models.add(new Model(getString(R.string.urlMuzJudeteanAgPoza),"Muzeul judetean",getString(R.string.DescMuzeuJudetean),getString(R.string.UrlMuzeulJudetean)));
+        models.add(new Model(getString(R.string.urlManastireaArgesPoza),"Manastirea Curtea de Arges",getString(R.string.DescCurteaDeArges),getString(R.string.UrlCurteaDeArges)));
+        models.add(new Model(getString(R.string.urlVidraruPoza),"Lacul Vidraru", getString(R.string.DescLaculVidraru),getString(R.string.UrlLaculVidraru)));
+        models.add(new Model(getString(R.string.urlTransfPoza),"Transfagrasan",getString(R.string.DescTransfagrasan),getString(R.string.UrlTransfagrasan)));
+        models.add(new Model(getString(R.string.urlValeaReaPoza),"Valea rea",getString(R.string.DescValeaRea),getString(R.string.UrlValeaRea)));
+        models.add(new Model(getString(R.string.UrlMuzeulGolesti),"Muzeul Golesti",getString(R.string.DescGolesti),getString(R.string.UrlMuzeulGolesti)));
 
       //  btnSeemore=view.findViewById(R.id.btnSeeMore);
 

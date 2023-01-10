@@ -7,9 +7,10 @@
     <item android:title="Info"
         android:id="@+id/info"
         android:icon="@drawable/ic_baseline_language_24"/>
-    <item android:title="Gallary"
+    <item
         android:id="@+id/gallery"
-        android:icon="@drawable/ic_baseline_image_24"/>
+        android:icon="@drawable/ic_baseline_image_24"
+        android:title="Gallery" />
     <item android:title="Quiz"
         android:id="@+id/quiz"
         android:icon="@drawable/ic_baseline_question_mark_24"/>

@@ -25,6 +25,11 @@
     <string name="UrlLaculVidraru">https://www.cjarges.ro/barajul-si-lacul-de-acumulare-vidraru</string>
     <string name="UrlTransfagrasan">https://www.cjarges.ro/transfagarasan</string>
 
-
+    <string name="urlVidraruPoza">https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcS7197wfY8FTuOkotvp4js6Fon9A44CJ_OjWHrMq24J6Z5MZrQD6CCEnIrK4q_guUidELS3vBgitPd59l_LdQHLaw</string>
+    <string name="urlTransfPoza">https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcSCJTcEuagcdzmDsdKA4aK8ugUFlKF9H4me1ewO3d3e7isgrIQYVGbxKD7LpdAqXbUMO_aNrFo-WFWQfMRY9PjFbQ</string>
+    <string name="urlManastireaArgesPoza">https://str.crestin-ortodox.ro/foto/680/67950_manastirea-curtea-de-arges-88.jpg</string>
+    <string name="urlGolestiPoza">https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcR1mN6cKP-txO8SydiK18lGBOFep_WplzloDMiexPvMHBwg5N31Ux7T4vHVvgFrCjBpQahAs44TxjkuLHocrTXajg</string>
+    <string name="urlMuzJudeteanAgPoza">https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQqhdx7LDhooi5wAWgSN_o_IuyFbBdI1sC4T0lfFkZ1fhsZ85inJ6d3HgpY3eTWGrIysuQDDrOW8ayOQg</string>
+    <string name="urlValeaReaPoza">https://www.bogdanpantoc.ro/wp-content/uploads/2020/06/Valea-Rea-Vf-Moldoveanu-Fagaras-29.jpg </string>
 
 </resources>
